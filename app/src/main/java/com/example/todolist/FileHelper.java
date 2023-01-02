@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class FileHelper {
 
-    public static final String FILENAME = "listinfoa.dat";
+    public static final String FILENAME = "listing.dat";
 
     public static void writeData(ArrayList<String> item, Context context)
     {
@@ -30,14 +30,14 @@ public class FileHelper {
 
     public static ArrayList<String> readData(Context context)
     {
-        ArrayList<String> itemlist = null;
+        ArrayList<String> itemList = null;
 
         try {
             FileInputStream fis = context.openFileInput(FILENAME);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            itemlist = (ArrayList<String>) ois.readObject();
+            itemList = (ArrayList<String>) ois.readObject();
         } catch (FileNotFoundException e) {
-            itemlist = new ArrayList<>();
+            itemList = new ArrayList<>();
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,6 +45,6 @@ public class FileHelper {
             e.printStackTrace();
         }
 
-        return itemlist;
+        return itemList;
     }
 }
